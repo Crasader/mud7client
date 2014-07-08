@@ -22,7 +22,9 @@ SocketManager* SocketManager::getInstance()
 void SocketManager::startSocket()
 {
     char IPStr[64]={0};
-    hostent * host_entry=gethostbyname("jiumiaoshanyou3.1251001050.lbs.twsapp.com");
+    
+    /*
+     hostent * host_entry=gethostbyname("server.7mud.com");
     
     if(host_entry !=0){
         
@@ -35,10 +37,11 @@ void SocketManager::startSocket()
                 (host_entry->h_addr_list[0][3]&0x00ff));
         
     }
+     */
     CCLog("%s",IPStr);
     CCLog("--------------------------");
-        _socket = new SocketClient(IPStr,31009,1,1,NULL);
-     //_socket = new SocketClient("192.168.1.210",11009,1,1,NULL);
+      //  _socket = new SocketClient(IPStr,31009,1,1,NULL);
+     _socket = new SocketClient("127.0.0.1",11009,1,1,NULL);
     //_socket = new SocketClient("183.60.243.195",31009,1,1,NULL);
 
     _socket->start();
